@@ -20,13 +20,10 @@ endp
 
 include 'sdl_ttf_funcs.inc'
 
-macro jumps [list] {
-forward
-list:
-    jmp dword [real_#list]
+irp func, sdl_ttf_funcs {
+func:
+    jmp dword [real_#func]
 }
-
-jumps sdl_ttf_funcs
 
 ; TTF_ByteSwappedUNICODE:
     ; jmp [real_TTF_ByteSwappedUNICODE]
