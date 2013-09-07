@@ -7,7 +7,7 @@ import sdl_ttf,\
     real_TTF_FontFaceIsFixedWidth, 'TTF_FontFaceIsFixedWidth',\
     real_TTF_FontFaceStyleName, 'TTF_FontFaceStyleName',\
     real_TTF_FontFaces, 'TTF_FontFaces',\
-    real_TTF_FontHeight, 'real_TTF_FontHeight',\
+    real_TTF_FontHeight, 'TTF_FontHeight',\
     real_TTF_FontLineSkip, 'TTF_FontLineSkip',\
     real_TTF_GetFontHinting, 'TTF_GetFontHinting',\
     real_TTF_GetFontKerning, 'TTF_GetFontKerning',\
