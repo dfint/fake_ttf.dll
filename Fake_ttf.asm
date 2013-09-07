@@ -11,13 +11,6 @@ proc DllEntryPoint hinstDLL,fdwReason,lpvReserved
     ret
 endp
 
-szCaption db 'TestCaption',0
-
-proc TestFunc, message
-    invoke MessageBox, 0, [message], szCaption, MB_OK
-    ret
-endp
-
 include 'sdl_ttf_funcs.inc'
 
 irp func, sdl_ttf_funcs {
