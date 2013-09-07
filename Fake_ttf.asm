@@ -28,25 +28,24 @@ func:
 ; TTF_ByteSwappedUNICODE:
     ; jmp [real_TTF_ByteSwappedUNICODE]
 
-proc TTF_RenderUNICODE_Blended, ttfFont, pwcharText, sdlcolorFg
-    invoke real_TTF_RenderUNICODE_Blended, [ttfFont], [pwcharText], [sdlcolorFg]
-    ret
-endp
+TTF_RenderUNICODE_Blended:
+.ttfFont    = 04h
+.pwcharText = 08h
+.sdlcolorFg = 10h
+    invoke ChangeText, dword [esp+.pwcharText]
+    test eax, eax
+    jz @f
+    mov [esp+.pwcharText], eax
+@@:
+    jmp real_TTF_RenderUNICODE_Blended ; [ttfFont], [pwcharText], [sdlcolorFg]
 
 section '.idata' import data readable writeable
 
-library user, 'USER32.DLL',\
-       sdl_ttf, 'Real_ttf.dll'
+library sdl_ttf, 'Real_ttf.dll',\
+        changetext, 'ChangeText.dll'
 
-import user,\
-    MessageBox,'MessageBoxA'
-
-; import kernel,\
-    ; GetLastError,'GetLastError',\
-    ; SetLastError,'SetLastError',\
-    ; FormatMessage,'FormatMessageA',\
-    ; LocalFree,'LocalFree'
-
+import changetext,\
+    ChangeText, '?ChangeText@@YAPA_WPA_W@Z'; 'ChangeText'
 
 include 'import_sdl_ttf.inc'
 
