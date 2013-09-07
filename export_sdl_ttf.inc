@@ -7,7 +7,7 @@ export 'SDL_ttf.dll',\
     TTF_FontFaceIsFixedWidth, 'TTF_FontFaceIsFixedWidth',\
     TTF_FontFaceStyleName, 'TTF_FontFaceStyleName',\
     TTF_FontFaces, 'TTF_FontFaces',\
-    TTF_FontHeight, 'TTF_FontFaces',\
+    TTF_FontHeight, 'TTF_FontHeight',\
     TTF_FontLineSkip, 'TTF_FontLineSkip',\
     TTF_GetFontHinting, 'TTF_GetFontHinting',\
     TTF_GetFontKerning, 'TTF_GetFontKerning',\
