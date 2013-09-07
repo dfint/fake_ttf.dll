@@ -7,7 +7,8 @@ sdl_ttf_funcs fix \
     TTF_OpenFont, TTF_OpenFontIndex, TTF_OpenFontIndexRW, TTF_OpenFontRW,\
     TTF_Quit, TTF_RenderGlyph_Blended, TTF_RenderGlyph_Shaded,\
     TTF_RenderGlyph_Solid, TTF_RenderText_Blended, TTF_RenderText_Shaded,\
-    TTF_RenderText_Solid, TTF_RenderUNICODE_Blended, TTF_RenderUNICODE_Shaded,\
+    TTF_RenderText_Solid, \ ; TTF_RenderUNICODE_Blended,
+    TTF_RenderUNICODE_Shaded,\
     TTF_RenderUNICODE_Solid, TTF_RenderUTF8_Blended, TTF_RenderUTF8_Shaded,\
     TTF_RenderUTF8_Solid, TTF_SetFontHinting, TTF_SetFontKerning,\
     TTF_SetFontOutline, TTF_SetFontStyle, TTF_SizeText, TTF_SizeUNICODE,\

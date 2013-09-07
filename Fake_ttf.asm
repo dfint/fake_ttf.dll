@@ -28,6 +28,11 @@ func:
 ; TTF_ByteSwappedUNICODE:
     ; jmp [real_TTF_ByteSwappedUNICODE]
 
+proc TTF_RenderUNICODE_Blended, ttfFont, pwcharText, sdlcolorFg
+    invoke real_TTF_RenderUNICODE_Blended, [ttfFont], [pwcharText], [sdlcolorFg]
+    ret
+endp
+
 section '.idata' import data readable writeable
 
 library user, 'USER32.DLL',\
