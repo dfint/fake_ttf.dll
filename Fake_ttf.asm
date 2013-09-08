@@ -47,7 +47,7 @@ library sdl_ttf, 'Real_ttf.dll',\
         changetext, 'ChangeText.dll'
 
 import changetext,\
-        ChangeText, '?ChangeText@@YAPA_WPA_W@Z'; 'ChangeText'
+        ChangeText, 'ChangeText'
 
 include 'import_sdl_ttf.inc'
 
