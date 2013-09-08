@@ -21,14 +21,24 @@ func:
 ; TTF_ByteSwappedUNICODE:
     ; jmp [real_TTF_ByteSwappedUNICODE]
 
-proc TTF_RenderUNICODE_Blended, ttfFont, pwcharText, sdlcolorFg
-    cinvoke ChangeText, [pwcharText]
+proc TTF_RenderUNICODE_Blended, ttfFont, pwcText, sdlcolorFg
+    cinvoke ChangeText, [pwcText]
     test eax, eax
     jz @f
-    mov [pwcharText], eax
+    mov [pwcText], eax
 @@:
     leave
-    jmp [real_TTF_RenderUNICODE_Blended]; [ttfFont], [pwcharText], [sdlcolorFg]
+    jmp [real_TTF_RenderUNICODE_Blended]; [ttfFont], [pwcText], [sdlcolorFg]
+endp
+
+proc TTF_SizeUNICODE, ttfFont, pwcText, pW, pH
+    cinvoke ChangeText, [pwcText]
+    test eax, eax
+    jz @f
+    mov [pwcText], eax
+@@:
+    leave
+    jmp [real_TTF_SizeUNICODE]
 endp
 
 section '.idata' import data readable writeable
