@@ -11,6 +11,6 @@ sdl_ttf_funcs fix \
     TTF_RenderUNICODE_Shaded,\
     TTF_RenderUNICODE_Solid, TTF_RenderUTF8_Blended, TTF_RenderUTF8_Shaded,\
     TTF_RenderUTF8_Solid, TTF_SetFontHinting, TTF_SetFontKerning,\
-    TTF_SetFontOutline, TTF_SetFontStyle, TTF_SizeText, TTF_SizeUNICODE,\
+    TTF_SetFontOutline, TTF_SetFontStyle, TTF_SizeText,\; TTF_SizeUNICODE,\
     TTF_SizeUTF8, TTF_WasInit
 
