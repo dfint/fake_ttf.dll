@@ -1,4 +1,4 @@
-sdl_ttf_funcs fix \
+sdl_ttf_funcs equ \
     TTF_ByteSwappedUNICODE, TTF_CloseFont, TTF_FontAscent, TTF_FontDescent,\
     TTF_FontFaceFamilyName, TTF_FontFaceIsFixedWidth, TTF_FontFaceStyleName,\
     TTF_FontFaces, TTF_FontHeight, TTF_FontLineSkip, TTF_GetFontHinting,\
