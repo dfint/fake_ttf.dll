@@ -14,7 +14,8 @@ endp
 
 include 'sdl_ttf_funcs.inc'
 
-proc TTF_RenderUNICODE_Blended, _, pwcText
+TTF_RenderUNICODE_Blended:
+proc @@, _, pwcText
     cinvoke ChangeText, [pwcText]
     test eax, eax
     jz @f
@@ -24,7 +25,8 @@ proc TTF_RenderUNICODE_Blended, _, pwcText
     jmp dword [real_TTF_RenderUNICODE_Blended]
 endp
 
-proc TTF_SizeUNICODE, _, pwcText
+TTF_SizeUNICODE:
+proc @@, _, pwcText
     cinvoke ChangeText, [pwcText]
     test eax, eax
     jz @f
@@ -33,10 +35,6 @@ proc TTF_SizeUNICODE, _, pwcText
     leave
     jmp dword [real_TTF_SizeUNICODE]
 endp
-
-if defined TTF_RenderUNICODE_Blended
-    display 'defined'
-end if
 
 transfer_call real_, sdl_ttf_funcs
 
