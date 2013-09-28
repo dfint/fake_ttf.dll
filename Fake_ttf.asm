@@ -3,7 +3,7 @@ format PE GUI DLL
 entry DllEntryPoint
 
 include 'win32ax.inc'
-include 'proxy_dll_macros.inc'
+
 
 section '.text' code readable executable
 
@@ -12,29 +12,25 @@ proc DllEntryPoint hinstDLL,fdwReason,lpvReserved
     ret
 endp
 
-include 'sdl_ttf_funcs.inc'
-
+label pwcText at esp+8
 TTF_RenderUNICODE_Blended:
-proc @@, _, pwcText
-    cinvoke ChangeText, [pwcText]
+    cinvoke ChangeText, dword [pwcText]
     test eax, eax
     jz @f
     mov [pwcText], eax
 @@:
-    leave
     jmp dword [real_TTF_RenderUNICODE_Blended]
-endp
 
 TTF_SizeUNICODE:
-proc @@, _, pwcText
-    cinvoke ChangeText, [pwcText]
+    cinvoke ChangeText, dword [pwcText]
     test eax, eax
     jz @f
     mov [pwcText], eax
 @@:
-    leave
     jmp dword [real_TTF_SizeUNICODE]
-endp
+
+include 'sdl_ttf_funcs.inc'
+include 'proxy_dll_macros.inc'
 
 transfer_call real_, sdl_ttf_funcs
 
