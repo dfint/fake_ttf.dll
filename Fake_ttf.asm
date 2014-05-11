@@ -12,9 +12,9 @@ proc DllEntryPoint hinstDLL,fdwReason,lpvReserved
     ret
 endp
 
-label pwcText at esp+8
+label pwcText dword at esp+8
 TTF_RenderUNICODE_Blended:
-    cinvoke ChangeText, dword [pwcText]
+    cinvoke ChangeText, [pwcText]
     test eax, eax
     jz @f
     mov [pwcText], eax
@@ -22,7 +22,7 @@ TTF_RenderUNICODE_Blended:
     jmp dword [real_TTF_RenderUNICODE_Blended]
 
 TTF_SizeUNICODE:
-    cinvoke ChangeText, dword [pwcText]
+    cinvoke ChangeText, [pwcText]
     test eax, eax
     jz @f
     mov [pwcText], eax
