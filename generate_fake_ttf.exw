@@ -3,8 +3,6 @@ constant prologue =
   "format PE GUI DLL\n\n" &
   "entry DLLEntryPoint\n\n" &
   "include 'win32ax.inc'"
-  
-constant section_text = "section '.text' code readable executable"
 
 constant proc_DllEntryPoint = 
   "proc DllEntryPoint hinstDLL, fwdReason, lpvReserved\n" &
@@ -73,3 +71,27 @@ constant SDL_ttf_export = {
   "TTF_SizeUTF8",
   "TTF_WasInit"
 }
+
+constant
+  index_TTF_RenderUNICODE_Blended = find("TTF_RenderUNICODE_Blended", SDL_ttf_export),
+  index_TTF_SizeUNICODE = find("TTF_SizeUNICODE", SDL_ttf_export)
+
+constant fn = open("Fake_ttf.asm", "w")
+
+puts(fn, prologue)
+puts(fn, "section '.text' code readable executable\n\n")
+
+for i = 1 to length(SDL_ttf_export) do
+  printf(fn, "%s:\n", {SDL_ttf_export[i]})
+  if i=index_TTF_RenderUNICODE_Blended or i=index_TTF_SizeUNICODE then
+    puts(fn, modified_procedure_body)  
+  end if
+  printf(fn, "    jmp dword [real_%s]\n", {SDL_ttf_export[i]})
+  puts(fn, "\n")
+end for
+
+puts(fn, "section '.idata' import data readable writeable\n\n")
+
+
+
+close(fn)
