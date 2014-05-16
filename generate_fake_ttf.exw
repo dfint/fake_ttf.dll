@@ -4,20 +4,20 @@ constant prologue =
   "entry DllEntryPoint\n\n" &
   "include 'win32ax.inc'\n\n"
 
-constant proc_DllEntryPoint = 
+constant proc_DllEntryPoint =
   "proc DllEntryPoint hinstDLL, fwdReason, lpvReserved\n" &
   "    mov eax, TRUE\n" &
   "    ret\n" &
   "endp\n\n"
-                    
+
 constant modified_procedure_body =
   "    cinvoke ChangeText, [pwcText]\n" &
   "    test eax, eax\n" &
   "    jz @f\n" &
   "    mov [pwcText], eax\n" &
-  "@@:\n"  
+  "@@:\n"
 
-constant modified_procedures = 
+constant modified_procedures =
   "label pwcText dword at esp+8\n" &
   "TTF_RenderUNICODE_Blended:\n" &
   modified_procedure_body &
@@ -25,7 +25,7 @@ constant modified_procedures =
   "TTF_SizeUNICODE:\n" &
   modified_procedure_body &
   "    jmp dword [real_TTF_RenderUNICODE_Blended]\n\n"
-  
+
 constant SDL_ttf_export = {
   "TTF_ByteSwappedUNICODE",
   "TTF_CloseFont",
@@ -98,7 +98,7 @@ puts(fn, "section '.idata' import data readable writeable\n\n")
 
 puts(fn, "  library sdl_ttf, 'Real_ttf.dll',\\\n" &
          "        changetext, 'ChangeText.dll'\n\n") 
-                                                    
+
 puts(fn, "  import changetext,\\\n" &
          "        ChangeText, 'ChangeText'\n\n")
 
@@ -108,7 +108,7 @@ for i = 1 to length(SDL_ttf_export) do
   printf(fn, "    real_%s, '%s'", repeat(SDL_ttf_export[i],2))
   if i < length(SDL_ttf_export) then
     puts(fn, ",\\")
-  end if           
+  end if
   puts(fn, "\n")
 end for
 puts(fn, "\n")
@@ -121,7 +121,7 @@ for i = 1 to length(SDL_ttf_export) do
   printf(fn, "    %s, '%s'", repeat(SDL_ttf_export[i],2))
   if i < length(SDL_ttf_export) then
     puts(fn, ",\\")
-  end if           
+  end if
   puts(fn, "\n")
 end for
 
