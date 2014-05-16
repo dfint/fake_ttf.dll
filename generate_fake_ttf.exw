@@ -76,7 +76,7 @@ constant
   index_TTF_RenderUNICODE_Blended = find("TTF_RenderUNICODE_Blended", SDL_ttf_export),
   index_TTF_SizeUNICODE = find("TTF_SizeUNICODE", SDL_ttf_export)
 
-constant fn = open("Fake_ttf.asm", "w")
+constant fn = open("Fake_ttf_nomacros.asm", "w")
 
 puts(fn, prologue)
 puts(fn, "section '.text' code readable executable\n\n")
