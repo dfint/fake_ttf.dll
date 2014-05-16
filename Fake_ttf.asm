@@ -48,4 +48,4 @@ section '.edata' export data readable
 
 myexport 'SDL_ttf.dll', sdl_ttf_funcs
 
-section '.reloc' fixups data discardable
+section '.reloc' fixups data readable discardable
