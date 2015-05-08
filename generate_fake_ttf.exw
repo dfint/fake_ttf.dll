@@ -24,7 +24,7 @@ constant modified_procedures =
   "    jmp dword [real_TTF_RenderUNICODE_Blended]\n\n" &
   "TTF_SizeUNICODE:\n" &
   modified_procedure_body &
-  "    jmp dword [real_TTF_RenderUNICODE_Blended]\n\n"
+  "    jmp dword [real_TTF_SizeUNICODE]\n\n"
 
 constant SDL_ttf_export = {
   "TTF_ByteSwappedUNICODE",
