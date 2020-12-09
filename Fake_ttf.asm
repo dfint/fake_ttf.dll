@@ -2,13 +2,15 @@ format PE GUI DLL
 
 entry DllEntryPoint
 
-include 'win32ax.inc'
+include 'include/macro/proc32.inc'
+include 'include/macro/import32.inc'
+include 'include/macro/export.inc'
 
 
 section '.text' code readable executable
 
 proc DllEntryPoint hinstDLL,fdwReason,lpvReserved
-    mov eax,TRUE
+    mov eax, 1
     ret
 endp
 
