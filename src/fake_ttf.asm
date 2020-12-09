@@ -2,10 +2,10 @@ format PE GUI DLL
 
 entry DllEntryPoint
 
-include '../include/macro/proc32.inc'
-include '../include/macro/import32.inc'
-include '../include/macro/export.inc'
-include '../include/macro/if.inc'
+include 'include/macro/proc32.inc'
+include 'include/macro/import32.inc'
+include 'include/macro/export.inc'
+include 'include/macro/if.inc'
 
 section '.text' code readable executable
 
@@ -15,7 +15,6 @@ proc DllEntryPoint hinstDLL, fwdReason, lpvReserved
 endp
 
 label pwcText dword at esp + 8
-
 
 TTF_RenderUNICODE_Blended:
     cinvoke ChangeText, [pwcText]
@@ -32,9 +31,7 @@ TTF_SizeUNICODE:
     .endif
     jmp [real_TTF_SizeUNICODE]
 
-
 include 'let_through.inc'
-
 
 section '.idata' import data readable writeable
 

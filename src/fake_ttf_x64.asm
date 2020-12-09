@@ -2,10 +2,10 @@ format PE64 GUI DLL
 
 entry DllEntryPoint
 
-include '../include/macro/proc64.inc'
-include '../include/macro/import64.inc'
-include '../include/macro/export.inc'
-include '../include/macro/if.inc'
+include 'include/macro/proc64.inc'
+include 'include/macro/import64.inc'
+include 'include/macro/export.inc'
+include 'include/macro/if.inc'
 
 section '.text' code readable executable
 

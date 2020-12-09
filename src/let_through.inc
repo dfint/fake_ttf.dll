@@ -86,7 +86,6 @@ TTF_RenderText_Shaded:
 TTF_RenderText_Solid:
     jmp [real_TTF_RenderText_Solid]
 
-
 TTF_RenderUNICODE_Shaded:
     jmp [real_TTF_RenderUNICODE_Shaded]
 
@@ -116,7 +115,6 @@ TTF_SetFontStyle:
 
 TTF_SizeText:
     jmp [real_TTF_SizeText]
-
 
 TTF_SizeUTF8:
     jmp [real_TTF_SizeUTF8]
