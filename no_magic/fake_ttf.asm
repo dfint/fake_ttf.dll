@@ -5,6 +5,7 @@ entry DllEntryPoint
 include '../include/macro/proc32.inc'
 include '../include/macro/import32.inc'
 include '../include/macro/export.inc'
+include '../include/macro/if.inc'
 
 section '.text' code readable executable
 
@@ -18,19 +19,17 @@ label pwcText dword at esp + 8
 
 TTF_RenderUNICODE_Blended:
     cinvoke ChangeText, [pwcText]
-    test eax, eax
-    jz @f
-    mov [pwcText], eax
-@@:
+    .if eax <> 0
+        mov [pwcText], eax
+    .endif
     jmp [real_TTF_RenderUNICODE_Blended]
 
 
 TTF_SizeUNICODE:
     cinvoke ChangeText, [pwcText]
-    test eax, eax
-    jz @f
-    mov [pwcText], eax
-@@:
+    .if eax <> 0
+        mov [pwcText], eax
+    .endif
     jmp [real_TTF_SizeUNICODE]
 
 

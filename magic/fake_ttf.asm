@@ -18,18 +18,16 @@ label pwcText dword at esp + 8
 
 TTF_RenderUNICODE_Blended:
     cinvoke ChangeText, [pwcText]
-    test eax, eax
-    jz @f
-    mov [pwcText], eax
-@@:
+    .if eax <> 0
+        mov [pwcText], eax
+    .endif
     jmp dword [real_TTF_RenderUNICODE_Blended]
 
 TTF_SizeUNICODE:
     cinvoke ChangeText, [pwcText]
-    test eax, eax
-    jz @f
-    mov [pwcText], eax
-@@:
+    .if eax <> 0
+        mov [pwcText], eax
+    .endif
     jmp dword [real_TTF_SizeUNICODE]
 
 include 'sdl_ttf_funcs.inc'
