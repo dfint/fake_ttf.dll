@@ -12,11 +12,13 @@ build_x64:
 	fasm src/fake_ttf_x64.asm build/fake_ttf_x64.dll
 
 package_x86: build_x86
+	rm fake_ttf_x86.zip || true
 	cp install_fake_ttf.bat build/
 	cd build && zip -r ../fake_ttf_x86.zip fake_ttf.dll install_fake_ttf.bat
 
 package_x64: build_x64
+	rm fake_ttf_x64.zip || true
 	cp install_fake_ttf_x64.bat build/
 	cd build && zip -r ../fake_ttf_x64.zip fake_ttf_x64.dll install_fake_ttf_x64.bat
 
-package_all: clean package_x86 package_x64
+package_all: package_x86 package_x64
