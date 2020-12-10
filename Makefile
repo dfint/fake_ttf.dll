@@ -1,8 +1,11 @@
 clean:
 	rm src/*.dll
+	rm -rf build
 
 build_x86:
-	fasm src/fake_ttf.asm
+	mkdir -p build
+	fasm src/fake_ttf.asm build/fake_ttf.dll
 
 build_x64:
-	fasm src/fake_ttf_x64.asm
+	mkdir -p build
+	fasm src/fake_ttf_x64.asm build/fake_ttf.dll
