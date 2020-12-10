@@ -1,3 +1,5 @@
+.PHONY: clean build_x86 build_x64 package_x86 package_x64 package_all
+
 clean:
 	rm src/*.dll || true
 	rm -rf build
