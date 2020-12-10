@@ -1,7 +1,7 @@
 clean:
 	rm src/*.dll || true
 	rm -rf build
-	rm fake_ttf_*.zip
+	rm fake_ttf_*.zip || true
 
 build_x86:
 	mkdir -p build
