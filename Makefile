@@ -5,4 +5,4 @@ build_x86:
 	fasm src/fake_ttf.asm
 
 build_x64:
-	fasm src/fake_ttf.asm
+	fasm src/fake_ttf_x64.asm
