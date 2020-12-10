@@ -11,6 +11,10 @@ build/fake_ttf_x64.dll: src/fake_ttf_x64.asm src/*.inc
 	mkdir -p build
 	fasm src/fake_ttf_x64.asm build/fake_ttf_x64.dll
 
+build_x86: build/fake_ttf.dll
+
+build_x64: build/fake_ttf_x64.dll
+
 fake_ttf_x86.zip: build/fake_ttf.dll install_fake_ttf.bat
 	rm fake_ttf_x86.zip || true
 	cp install_fake_ttf.bat build/
