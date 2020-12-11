@@ -14,15 +14,16 @@ proc DllEntryPoint hinstDLL, fwdReason, lpvReserved
     ret
 endp
 
-; subst_text du "Test",0
+subst_text du "du hasst "
+           du "hasst mich", 0
 
 macro _ChangeText {
     mov [rsp+0x08], rcx
     mov [rsp+0x10], rdx
     mov [rsp+0x18], r8
 
-    cinvoke ChangeText, rdx
-    ; mov rax, subst_text
+    ; cinvoke ChangeText, rdx
+    mov rax, subst_text
 
     mov rcx, [rsp+0x08]
     mov rdx, [rsp+0x10]
