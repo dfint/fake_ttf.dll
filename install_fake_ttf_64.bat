@@ -1,6 +1,6 @@
 @echo off
 
-set fake_ttf=fake_ttf_x64.dll
+set fake_ttf=fake_ttf_64.dll
 
 if not exist SDL_ttf.dll goto er0
 
