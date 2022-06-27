@@ -49,7 +49,7 @@ include 'let_through.inc'
 section '.idata' import data readable writeable
 
     library sdl_ttf, 'Real_ttf.dll',\
-        changetext, 'ChangeText.dll'
+        changetext, 'changetext64.dll'
 
     import changetext,\
         ChangeText, 'ChangeText'
